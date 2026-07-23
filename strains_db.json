@@ -1,0 +1,1118 @@
+[
+    {
+        "id": "pink-black-cbd-auto",
+        "name": "Pink Black CBD Automática",
+        "type": "Indica-dominant",
+        "thc_avg": 0.5,
+        "cbd_avg": 11.5,
+        "cbg_avg": 0.5,
+        "focus": "Relaxamento leve, equilíbrio e conforto"
+    },
+    {
+        "id": "charlottes-web",
+        "name": "Charlotte's Web",
+        "type": "Sativa-dominant",
+        "thc_avg": 0.3,
+        "cbd_avg": 16.0,
+        "cbg_avg": 0.5,
+        "focus": "Epilepsy, Neuroprotection"
+    },
+    {
+        "id": "acdc",
+        "name": "ACDC",
+        "type": "Sativa-dominant",
+        "thc_avg": 1.0,
+        "cbd_avg": 18.0,
+        "cbg_avg": 1.0,
+        "focus": "Pain, Anxiety"
+    },
+    {
+        "id": "harlequin",
+        "name": "Harlequin",
+        "type": "Sativa-dominant",
+        "thc_avg": 5.0,
+        "cbd_avg": 10.0,
+        "cbg_avg": 0.8,
+        "focus": "Daytime relief, Anti-inflammatory"
+    },
+    {
+        "id": "cannatonic",
+        "name": "Cannatonic",
+        "type": "Hybrid",
+        "thc_avg": 4.0,
+        "cbd_avg": 12.0,
+        "cbg_avg": 0.5,
+        "focus": "Spasms, Migraines"
+    },
+    {
+        "id": "remedy",
+        "name": "Remedy",
+        "type": "Indica-dominant",
+        "thc_avg": 0.5,
+        "cbd_avg": 14.0,
+        "cbg_avg": 0.5,
+        "focus": "Insomnia, Muscle relaxation"
+    },
+    {
+        "id": "sour-tsunami",
+        "name": "Sour Tsunami",
+        "type": "Hybrid",
+        "thc_avg": 1.5,
+        "cbd_avg": 11.0,
+        "cbg_avg": 0.4,
+        "focus": "Chronic pain, Stress"
+    },
+    {
+        "id": "ringos-gift",
+        "name": "Ringo's Gift",
+        "type": "Hybrid",
+        "thc_avg": 1.0,
+        "cbd_avg": 20.0,
+        "cbg_avg": 1.0,
+        "focus": "PTSD, Arthritis"
+    },
+    {
+        "id": "pennywise",
+        "name": "Pennywise",
+        "type": "Indica-dominant",
+        "thc_avg": 10.0,
+        "cbd_avg": 10.0,
+        "cbg_avg": 0.5,
+        "focus": "1:1 Ratio, Neuropathic pain"
+    },
+    {
+        "id": "stephen-hawking-kush",
+        "name": "Stephen Hawking Kush",
+        "type": "Indica-dominant",
+        "thc_avg": 5.0,
+        "cbd_avg": 5.0,
+        "cbg_avg": 0.3,
+        "focus": "ALS, MS, Autoimmune"
+    },
+    {
+        "id": "suzy-q",
+        "name": "Suzy Q",
+        "type": "Hybrid",
+        "thc_avg": 0.2,
+        "cbd_avg": 10.0,
+        "cbg_avg": 0.2,
+        "focus": "Muscle spasms, Nausea"
+    },
+    {
+        "id": "sweet-and-sour-widow",
+        "name": "Sweet and Sour Widow",
+        "type": "Hybrid",
+        "thc_avg": 7.0,
+        "cbd_avg": 7.0,
+        "cbg_avg": 0.4,
+        "focus": "Mild relief, 1:1 Ratio"
+    },
+    {
+        "id": "valentine-x",
+        "name": "Valentine X",
+        "type": "Hybrid",
+        "thc_avg": 0.5,
+        "cbd_avg": 18.0,
+        "cbg_avg": 0.6,
+        "focus": "Seizures, Inflammation"
+    },
+    {
+        "id": "haileys-hope",
+        "name": "Hailey's Hope",
+        "type": "Hybrid",
+        "thc_avg": 0.8,
+        "cbd_avg": 16.0,
+        "cbg_avg": 0.4,
+        "focus": "Epilepsy"
+    },
+    {
+        "id": "elektra",
+        "name": "Elektra",
+        "type": "Hybrid",
+        "thc_avg": 0.2,
+        "cbd_avg": 15.0,
+        "cbg_avg": 0.3,
+        "focus": "Anxiety, Depression"
+    },
+    {
+        "id": "lifter",
+        "name": "Lifter",
+        "type": "Hybrid",
+        "thc_avg": 0.2,
+        "cbd_avg": 16.0,
+        "cbg_avg": 0.5,
+        "focus": "Energy, Mood enhancement"
+    },
+    {
+        "id": "sour-space-candy",
+        "name": "Sour Space Candy",
+        "type": "Hybrid",
+        "thc_avg": 0.3,
+        "cbd_avg": 15.0,
+        "cbg_avg": 0.6,
+        "focus": "Stress relief"
+    },
+    {
+        "id": "white-cbg",
+        "name": "White CBG",
+        "type": "Hybrid",
+        "thc_avg": 0.1,
+        "cbd_avg": 0.1,
+        "cbg_avg": 12.0,
+        "focus": "Glaucoma, Anti-bacterial"
+    },
+    {
+        "id": "jack-frost-cbg",
+        "name": "Jack Frost CBG",
+        "type": "Hybrid",
+        "thc_avg": 0.1,
+        "cbd_avg": 0.2,
+        "cbg_avg": 15.0,
+        "focus": "Gut health, Inflammation"
+    },
+    {
+        "id": "matterhorn-cbg",
+        "name": "Matterhorn CBG",
+        "type": "Hybrid",
+        "thc_avg": 0.1,
+        "cbd_avg": 0.5,
+        "cbg_avg": 14.0,
+        "focus": "Appetite stimulation, Neuroprotection"
+    },
+    {
+        "id": "dougs-varin",
+        "name": "Doug's Varin",
+        "type": "Sativa",
+        "thc_avg": 15.0,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "High THCV, Appetite suppression"
+    },
+    {
+        "id": "durban-poison",
+        "name": "Durban Poison",
+        "type": "Sativa",
+        "thc_avg": 18.0,
+        "cbd_avg": 0.1,
+        "cbg_avg": 1.0,
+        "focus": "High THCV, Energy, Focus"
+    },
+    {
+        "id": "blue-dream",
+        "name": "Blue Dream",
+        "type": "Sativa-dominant",
+        "thc_avg": 19,
+        "cbd_avg": 0.5,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "sour-diesel",
+        "name": "Sour Diesel",
+        "type": "Sativa",
+        "thc_avg": 21,
+        "cbd_avg": 0.2,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "og-kush",
+        "name": "OG Kush",
+        "type": "Hybrid",
+        "thc_avg": 22,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "granddaddy-purple",
+        "name": "Granddaddy Purple",
+        "type": "Indica",
+        "thc_avg": 19,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "girl-scout-cookies",
+        "name": "Girl Scout Cookies",
+        "type": "Hybrid",
+        "thc_avg": 24,
+        "cbd_avg": 0.2,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "jack-herer",
+        "name": "Jack Herer",
+        "type": "Sativa-dominant",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "green-crack",
+        "name": "Green Crack",
+        "type": "Sativa",
+        "thc_avg": 17,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "white-widow",
+        "name": "White Widow",
+        "type": "Hybrid",
+        "thc_avg": 18,
+        "cbd_avg": 0.2,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "gorilla-glue-4",
+        "name": "Gorilla Glue #4",
+        "type": "Hybrid",
+        "thc_avg": 27,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "northern-lights",
+        "name": "Northern Lights",
+        "type": "Indica",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "pineapple-express",
+        "name": "Pineapple Express",
+        "type": "Hybrid",
+        "thc_avg": 19,
+        "cbd_avg": 0.3,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "amnesia-haze",
+        "name": "Amnesia Haze",
+        "type": "Sativa-dominant",
+        "thc_avg": 20,
+        "cbd_avg": 0.2,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "super-silver-haze",
+        "name": "Super Silver Haze",
+        "type": "Sativa",
+        "thc_avg": 19,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "chemdawg",
+        "name": "Chemdawg",
+        "type": "Hybrid",
+        "thc_avg": 20,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "bubba-kush",
+        "name": "Bubba Kush",
+        "type": "Indica",
+        "thc_avg": 17,
+        "cbd_avg": 0.2,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "ak-47",
+        "name": "AK-47",
+        "type": "Hybrid",
+        "thc_avg": 17,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "trainwreck",
+        "name": "Trainwreck",
+        "type": "Sativa-dominant",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "blueberry",
+        "name": "Blueberry",
+        "type": "Indica",
+        "thc_avg": 17,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "hindu-kush",
+        "name": "Hindu Kush",
+        "type": "Indica",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "purple-haze",
+        "name": "Purple Haze",
+        "type": "Sativa",
+        "thc_avg": 16,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "wedding-cake",
+        "name": "Wedding Cake",
+        "type": "Hybrid",
+        "thc_avg": 24,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "gelato",
+        "name": "Gelato",
+        "type": "Hybrid",
+        "thc_avg": 21,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "zkittlez",
+        "name": "Zkittlez",
+        "type": "Indica-dominant",
+        "thc_avg": 19,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "mac-1",
+        "name": "Mac 1",
+        "type": "Hybrid",
+        "thc_avg": 22,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "slurricane",
+        "name": "Slurricane",
+        "type": "Indica-dominant",
+        "thc_avg": 24,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "runtz",
+        "name": "Runtz",
+        "type": "Hybrid",
+        "thc_avg": 24,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "bruce-banner",
+        "name": "Bruce Banner",
+        "type": "Hybrid",
+        "thc_avg": 26,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "strawberry-cough",
+        "name": "Strawberry Cough",
+        "type": "Sativa",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "cherry-pie",
+        "name": "Cherry Pie",
+        "type": "Hybrid",
+        "thc_avg": 16,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "death-star",
+        "name": "Death Star",
+        "type": "Indica",
+        "thc_avg": 19,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "master-kush",
+        "name": "Master Kush",
+        "type": "Indica",
+        "thc_avg": 17,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "tahoe-og",
+        "name": "Tahoe OG",
+        "type": "Hybrid",
+        "thc_avg": 21,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "alaskan-thunder-fuck",
+        "name": "Alaskan Thunder Fuck",
+        "type": "Sativa",
+        "thc_avg": 16,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "cheese",
+        "name": "Cheese",
+        "type": "Hybrid",
+        "thc_avg": 17,
+        "cbd_avg": 0.2,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "skunk-1",
+        "name": "Skunk #1",
+        "type": "Hybrid",
+        "thc_avg": 16,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "super-lemon-haze",
+        "name": "Super Lemon Haze",
+        "type": "Sativa-dominant",
+        "thc_avg": 19,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "tangie",
+        "name": "Tangie",
+        "type": "Sativa",
+        "thc_avg": 17,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "lsd",
+        "name": "LSD",
+        "type": "Hybrid",
+        "thc_avg": 22,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "kosher-kush",
+        "name": "Kosher Kush",
+        "type": "Indica",
+        "thc_avg": 21,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "blackberry-kush",
+        "name": "Blackberry Kush",
+        "type": "Indica",
+        "thc_avg": 17,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "ghost-train-haze",
+        "name": "Ghost Train Haze",
+        "type": "Sativa",
+        "thc_avg": 25,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "skywalker-og",
+        "name": "Skywalker OG",
+        "type": "Indica-dominant",
+        "thc_avg": 20,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "fire-og",
+        "name": "Fire OG",
+        "type": "Hybrid",
+        "thc_avg": 20,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "headband",
+        "name": "Headband",
+        "type": "Hybrid",
+        "thc_avg": 20,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "grape-ape",
+        "name": "Grape Ape",
+        "type": "Indica",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "purple-urkle",
+        "name": "Purple Urkle",
+        "type": "Indica",
+        "thc_avg": 16,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "gods-gift",
+        "name": "God's Gift",
+        "type": "Indica",
+        "thc_avg": 19,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "la-confidential",
+        "name": "LA Confidential",
+        "type": "Indica",
+        "thc_avg": 17,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "afghan-kush",
+        "name": "Afghan Kush",
+        "type": "Indica",
+        "thc_avg": 17,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "lemon-skunk",
+        "name": "Lemon Skunk",
+        "type": "Hybrid",
+        "thc_avg": 17,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "mango-kush",
+        "name": "Mango Kush",
+        "type": "Hybrid",
+        "thc_avg": 16,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "critical-mass",
+        "name": "Critical Mass",
+        "type": "Indica",
+        "thc_avg": 20,
+        "cbd_avg": 0.5,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "maui-wowie",
+        "name": "Maui Wowie",
+        "type": "Sativa",
+        "thc_avg": 17,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "panama-red",
+        "name": "Panama Red",
+        "type": "Sativa",
+        "thc_avg": 15,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "acapulco-gold",
+        "name": "Acapulco Gold",
+        "type": "Sativa",
+        "thc_avg": 16,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "colombian-gold",
+        "name": "Colombian Gold",
+        "type": "Sativa",
+        "thc_avg": 17,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "thai",
+        "name": "Thai",
+        "type": "Sativa",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "chocolope",
+        "name": "Chocolope",
+        "type": "Sativa",
+        "thc_avg": 19,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "cinderella-99",
+        "name": "Cinderella 99",
+        "type": "Hybrid",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "romulan",
+        "name": "Romulan",
+        "type": "Indica",
+        "thc_avg": 16,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "g13",
+        "name": "G13",
+        "type": "Indica",
+        "thc_avg": 19,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "moby-dick",
+        "name": "Moby Dick",
+        "type": "Sativa-dominant",
+        "thc_avg": 20,
+        "cbd_avg": 0.5,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "plushberry",
+        "name": "Plushberry",
+        "type": "Indica-dominant",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "vortex",
+        "name": "Vortex",
+        "type": "Sativa-dominant",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "space-queen",
+        "name": "Space Queen",
+        "type": "Hybrid",
+        "thc_avg": 16,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "jack-the-ripper",
+        "name": "Jack the Ripper",
+        "type": "Sativa",
+        "thc_avg": 17,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "querkle",
+        "name": "Querkle",
+        "type": "Indica",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "chernobyl",
+        "name": "Chernobyl",
+        "type": "Hybrid",
+        "thc_avg": 19,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "agent-orange",
+        "name": "Agent Orange",
+        "type": "Hybrid",
+        "thc_avg": 17,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "jillybean",
+        "name": "Jillybean",
+        "type": "Hybrid",
+        "thc_avg": 16,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "blue-cheese",
+        "name": "Blue Cheese",
+        "type": "Indica-dominant",
+        "thc_avg": 18,
+        "cbd_avg": 0.2,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "uk-cheese",
+        "name": "UK Cheese",
+        "type": "Hybrid",
+        "thc_avg": 17,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "exodus-cheese",
+        "name": "Exodus Cheese",
+        "type": "Hybrid",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "white-rhino",
+        "name": "White Rhino",
+        "type": "Indica",
+        "thc_avg": 20,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "great-white-shark",
+        "name": "Great White Shark",
+        "type": "Hybrid",
+        "thc_avg": 17,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "super-skunk",
+        "name": "Super Skunk",
+        "type": "Indica",
+        "thc_avg": 19,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "shiva-skunk",
+        "name": "Shiva Skunk",
+        "type": "Indica",
+        "thc_avg": 16,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "sensi-star",
+        "name": "Sensi Star",
+        "type": "Indica",
+        "thc_avg": 20,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "belladonna",
+        "name": "Belladonna",
+        "type": "Hybrid",
+        "thc_avg": 17,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "wappa",
+        "name": "Wappa",
+        "type": "Hybrid",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "nebula",
+        "name": "Nebula",
+        "type": "Hybrid",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "opium",
+        "name": "Opium",
+        "type": "Hybrid",
+        "thc_avg": 20,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "ice",
+        "name": "Ice",
+        "type": "Hybrid",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "aurora-indica",
+        "name": "Aurora Indica",
+        "type": "Indica",
+        "thc_avg": 17,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "wonder-woman",
+        "name": "Wonder Woman",
+        "type": "Hybrid",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "chrystal",
+        "name": "Chrystal",
+        "type": "Hybrid",
+        "thc_avg": 17,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "papaya",
+        "name": "Papaya",
+        "type": "Indica",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "jock-horror",
+        "name": "Jock Horror",
+        "type": "Sativa-dominant",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "eldorado",
+        "name": "Eldorado",
+        "type": "Sativa",
+        "thc_avg": 16,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "medusa",
+        "name": "Medusa",
+        "type": "Hybrid",
+        "thc_avg": 17,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "big-bud",
+        "name": "Big Bud",
+        "type": "Indica",
+        "thc_avg": 16,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "northern-lights-5",
+        "name": "Northern Lights #5",
+        "type": "Indica",
+        "thc_avg": 19,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "haze",
+        "name": "Haze",
+        "type": "Sativa",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "kali-mist",
+        "name": "Kali Mist",
+        "type": "Sativa",
+        "thc_avg": 17,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "chronic",
+        "name": "Chronic",
+        "type": "Hybrid",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "white-russian",
+        "name": "White Russian",
+        "type": "Hybrid",
+        "thc_avg": 20,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "bubble-gum",
+        "name": "Bubble Gum",
+        "type": "Hybrid",
+        "thc_avg": 17,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "motivation",
+        "name": "Motivation",
+        "type": "Indica",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "s.a.g.e.",
+        "name": "S.A.G.E.",
+        "type": "Hybrid",
+        "thc_avg": 20,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "mk-ultra",
+        "name": "MK Ultra",
+        "type": "Indica",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Pain, Stress, Insomnia"
+    },
+    {
+        "id": "burmese-kush",
+        "name": "Burmese Kush",
+        "type": "Hybrid",
+        "thc_avg": 16,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    },
+    {
+        "id": "kushage",
+        "name": "Kushage",
+        "type": "Hybrid",
+        "thc_avg": 18,
+        "cbd_avg": 0.1,
+        "cbg_avg": 0.5,
+        "focus": "Depression, Fatigue, Creativity"
+    }
+]

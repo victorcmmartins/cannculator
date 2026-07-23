@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Clínica de Extração de Cannabis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            max-width: 650px;
+            margin: 40px auto;
+            padding: 20px;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h2 { text-align: center; color: #1b5e20; }
+        label { font-weight: bold; margin-top: 15px; display: block; color: #2e7d32; }
+        .radio-group { display: flex; gap: 15px; margin-top: 5px; background: #f1f1f1; padding: 10px; border-radius: 4px; border: 1px solid #ccc;}
+        .radio-group label { margin-top: 0; font-weight: normal; color: #333; display: flex; align-items: center; gap: 5px; cursor: pointer; }
+        select, input[type="text"], input[type="number"], button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #1b5e20;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        button:hover { background-color: #124016; }
+        .result-box {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f5e9;
+            border-left: 4px solid #1b5e20;
+            display: none;
+        }
+        .strain-info { font-size: 0.9em; color: #444; margin-bottom: 15px; padding: 10px; background: #f9f9f9; border-radius: 4px;}
+        .highlight { color: #d32f2f; font-weight: bold; font-size: 1.1em; }
+        .success { color: #1b5e20; font-weight: bold; font-size: 1.2em; }
+        hr { border: 0; border-top: 1px solid #c8e6c9; margin: 15px 0; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #c8e6c9; padding: 8px; text-align: center; font-size: 0.9em; }
+        th { background-color: #c8e6c9; color: #1b5e20;}
+        .warning-box { background-color: #fff3e0; border-left: 4px solid #ef6c00; padding: 10px; margin-top: 15px; font-size: 0.85em; color: #555;}
+        .info-box { background-color: #e3f2fd; border-left: 4px solid #1565c0; padding: 10px; margin-top: 15px; font-size: 0.85em; color: #333;}
+        .reading-section { margin-top: 30px; background: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px solid #e0e0e0; }
+        .reading-section h3 { color: #1b5e20; margin-top: 0; }
+        .reading-section ul { padding-left: 20px; }
+        .reading-section li { margin-bottom: 10px; }
+        .reading-section a { color: #2e7d32; text-decoration: none; font-weight: bold; }
+        .reading-section a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <h2>Calculadora Clínica de Extração</h2>
+    <p style="text-align: center; font-size: 0.9em; color: #666;">Modelagem para extração artesanal com base no perfil botânico.</p>
+
+    <label>1. Origem da Genética (Matéria Vegetal):</label>
+    <div class="radio-group">
+        <label><input type="radio" name="sourceToggle" value="db" checked onchange="updateSourceUI()"> Buscar no Banco de Dados</label>
+        <label><input type="radio" name="sourceToggle" value="custom" onchange="updateSourceUI()"> Inserir Manualmente</label>
+    </div>
+
+    <!-- Seção: Banco de Dados -->
+    <div id="dbSelection">
+        <input type="text" id="strainInput" list="strainOptions" placeholder="Digite o nome da genética para buscar...">
+        <datalist id="strainOptions"></datalist>
+        <div id="strainDetails" class="strain-info" style="display: none; margin-top: 10px;"></div>
+    </div>
+
+    <!-- Seção: Inserção Manual -->
+    <div id="customSelection" style="display: none; background: #f9f9f9; padding: 15px; border-radius: 4px; margin-top: 10px; border: 1px solid #ccc;">
+        <label style="margin-top: 0;">Nome da Genética:</label>
+        <input type="text" id="customName" placeholder="Ex: Manga Rosa">
+        
+        <label>Perfil Predominante:</label>
+        <select id="customType">
+            <option value="Sativa">Sativa</option>
+            <option value="Indica">Indica</option>
+            <option value="Híbrida">Híbrida</option>
+            <option value="Sativa-dominante">Sativa-dominante</option>
+            <option value="Indica-dominante">Indica-dominante</option>
+            <option value="Rica em CBD">Rica em CBD</option>
+        </select>
+
+        <div style="display: flex; gap: 10px; margin-top: 10px;">
+            <div style="flex: 1;"><label style="margin-top: 0;">THC (%):</label><input type="number" id="customThc" step="0.1" min="0" placeholder="Ex: 18"></div>
+            <div style="flex: 1;"><label style="margin-top: 0;">CBD (%):</label><input type="number" id="customCbd" step="0.1" min="0" placeholder="Ex: 1"></div>
+            <div style="flex: 1;"><label style="margin-top: 0;">CBG (%):</label><input type="number" id="customCbg" step="0.1" min="0" placeholder="Ex: 0.5"></div>
+        </div>
+        
+        <div class="info-box">
+            <strong>ℹ️ Nota sobre Genéticas Manuais:</strong> 
+            Valores não informados ou zerados serão automaticamente arredondados para <strong>0.5%</strong>. A botânica da Cannabis demonstra que mesmo genéticas puras (isoladas) possuem traços residuais e concentrações mínimas de outros canabinoides, mantendo a proporção matemática da extração realista e segura. Sempre priorize os dados do seu laudo laboratorial ou do banco de sementes (breeder).
+        </div>
+    </div>
+
+    <label for="targetVolume">2. Volume do Frasco Final (mL):</label>
+    <input type="number" id="targetVolume" placeholder="Ex: 30" min="1" step="1">
+
+    <label>3. Unidade de Medida Alvo:</label>
+    <div class="radio-group">
+        <label><input type="radio" name="unitToggle" value="mgml" checked onchange="updateUnitUI()"> mg/mL (Padrão Clínico)</label>
+        <label><input type="radio" name="unitToggle" value="percent" onchange="updateUnitUI()"> Porcentagem (%)</label>
+    </div>
+
+    <label id="targetConcentrationLabel" for="targetConcentration">4. Concentração Alvo Desejada (mg/mL):</label>
+    <input type="number" id="targetConcentration" placeholder="Ex: 50" min="0.1" step="0.1">
+    
+    <div style="margin-top: 15px; font-size: 0.85em; color: #666; background: #f1f1f1; padding: 10px; border-radius: 4px;">
+        <strong>Nota Técnica:</strong> O cálculo baseia-se em <strong>80% de eficiência</strong> (média padrão para extrações caseiras com solvente) e estima o rendimento utilizando um conta-gotas de <strong>20 gotas por mL</strong>. <em>1% equivale a 10 mg/mL de ativos.</em>
+    </div>
+
+    <button onclick="calculateRecipe()">Gerar Receita e Dosagem</button>
+
+    <div id="results" class="result-box">
+        <h3>Receita para o Laboratório:</h3>
+        <p>Para produzir <strong><span id="resVol"></span> mL</strong> de óleo Full Spectrum a <strong><span id="resMgMlInput"></span> mg/mL</strong>, utilize:</p>
+        <p>🌿 Massa de Flor Necessária: <span id="resGrams" class="success">0</span> gramas</p>
+        <p>🛢️ Óleo Carreador (Ex: TCM): <span id="resTcm" class="success">0</span> mL</p>
+        
+        <hr>
+        <h4>Perfil Farmacológico Estimado:</h4>
+        <p><strong>Genética:</strong> <span id="resName" style="color: #444; font-weight: bold;"></span> (<span id="resType"></span>)</p>
+        <p><strong>Proporção (Ratio) CBD:THC</strong> ➔ <span id="resRatio" class="highlight">0</span></p>
+        <p><strong>Potência por Gota:</strong> ~<span id="resMgGota">0</span> mg de ativos por gota</p>
+        
+        <table id="profileTable">
+            <tr>
+                <th>Canabinoide</th>
+                <th>Concentração (mg/mL)</th>
+                <th>Total no Frasco (mg)</th>
+            </tr>
+            <tr>
+                <td>THC</td>
+                <td><span id="thcMl">0</span> mg/mL</td>
+                <td><span id="thcTotal">0</span> mg</td>
+            </tr>
+            <tr>
+                <td>CBD</td>
+                <td><span id="cbdMl">0</span> mg/mL</td>
+                <td><span id="cbdTotal">0</span> mg</td>
+            </tr>
+            <tr>
+                <td>CBG</td>
+                <td><span id="cbgMl">0</span> mg/mL</td>
+                <td><span id="cbgTotal">0</span> mg</td>
+            </tr>
+        </table>
+
+        <hr>
+        <h4>Guia Prático de Dosagem (Estimado):</h4>
+        <table id="doseTable">
+            <tr>
+                <th>Dose Alvo (mg)</th>
+                <th>Volume (mL)</th>
+                <th>Gotas Aprox.</th>
+            </tr>
+            <tr>
+                <td>10 mg</td>
+                <td><span id="vol10">0</span> mL</td>
+                <td><span id="gotas10">0</span></td>
+            </tr>
+            <tr>
+                <td>25 mg</td>
+                <td><span id="vol25">0</span> mL</td>
+                <td><span id="gotas25">0</span></td>
+            </tr>
+            <tr>
+                <td>50 mg</td>
+                <td><span id="vol50">0</span> mL</td>
+                <td><span id="gotas50">0</span></td>
+            </tr>
+        </table>
+
+        <div class="warning-box">
+            <strong>⚠️ Atenção Clínica:</strong><br>
+            • <strong>THC:</strong> Doses superiores a 30 mg/dia de THC aumentam significativamente o risco de efeitos psicoativos e colaterais.<br>
+            • <strong>Alta Concentração:</strong> Doses elevadas de canabinoides podem causar sonolência, fadiga, distúrbios gastrointestinais e interações com medicamentos.<br>
+            • <em>Utilize sempre conta-gotas graduados em mililitros para precisão absoluta.</em>
+        </div>
+    </div>
+
+    <!-- Leitura Recomendada -->
+    <div class="reading-section">
+        <h3>📚 Leituras Recomendadas</h3>
+        <ul>
+            <li>
+                <a href="https://cultlight.com.br/blog/enciclopedia-cultivador/guia-completo-como-produzir-oleo-cannabis-casa/" target="_blank">
+                    Guia Prático: Como produzir óleo de Cannabis em casa
+                </a>
+            </li>
+            <li>
+                <a href="https://www.cannabisesaude.com.br/como-extrair-canabidiol/" target="_blank">
+                    Leitura Complementar: Métodos de Extração de Canabidiol
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        let strainsData = [];
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetch('strains_db.json');
+                strainsData = await response.json();
+                populateDatalist();
+            } catch (error) {
+                console.error("Erro ao carregar JSON:", error);
+            }
+        });
+
+        // Preenche o datalist para a barra de pesquisa
+        function populateDatalist() {
+            const datalist = document.getElementById('strainOptions');
+            datalist.innerHTML = '';
+            strainsData.forEach(strain => {
+                const option = document.createElement('option');
+                option.value = strain.name;
+                datalist.appendChild(option);
+            });
+        }
+
+        // Evento que escuta a digitação/seleção no input de busca
+        document.getElementById('strainInput').addEventListener('input', (e) => {
+            const strainName = e.target.value;
+            const strain = strainsData.find(s => s.name === strainName);
+            const detailsDiv = document.getElementById('strainDetails');
+            
+            if(strain) {
+                let ratioTxt = "Equilibrado";
+                if(strain.cbd_avg > strain.thc_avg) {
+                    const r = (strain.cbd_avg / (strain.thc_avg || 0.1)).toFixed(0);
+                    ratioTxt = `${r}:1 (CBD:THC)`;
+                } else if (strain.thc_avg > strain.cbd_avg) {
+                    const r = (strain.thc_avg / (strain.cbd_avg || 0.1)).toFixed(0);
+                    ratioTxt = `1:${r} (CBD:THC)`;
+                }
+
+                detailsDiv.innerHTML = `<strong>Perfil:</strong> ${strain.type} <br>
+                <strong>Ratio Aproximado:</strong> ${ratioTxt} <br>
+                <strong>Potência Média da Planta:</strong> THC: ${strain.thc_avg}% | CBD: ${strain.cbd_avg}% | CBG: ${strain.cbg_avg}%`;
+                detailsDiv.style.display = 'block';
+            } else {
+                detailsDiv.innerHTML = '';
+                detailsDiv.style.display = 'none';
+            }
+        });
+
+        // Alterna entre Buscar no Banco e Inserir Manualmente
+        function updateSourceUI() {
+            const isCustom = document.querySelector('input[name="sourceToggle"]:checked').value === 'custom';
+            document.getElementById('dbSelection').style.display = isCustom ? 'none' : 'block';
+            document.getElementById('customSelection').style.display = isCustom ? 'block' : 'none';
+        }
+
+        // Alterna entre mg/mL e %
+        function updateUnitUI() {
+            const isMgMl = document.querySelector('input[name="unitToggle"]:checked').value === 'mgml';
+            const label = document.getElementById('targetConcentrationLabel');
+            const input = document.getElementById('targetConcentration');
+            
+            if(isMgMl) {
+                label.textContent = "4. Concentração Alvo Desejada (mg/mL):";
+                input.placeholder = "Ex: 50";
+            } else {
+                label.textContent = "4. Concentração Alvo Desejada (%):";
+                input.placeholder = "Ex: 5";
+            }
+        }
+
+        function calculateRecipe() {
+            let activeStrain = null;
+            const isCustom = document.querySelector('input[name="sourceToggle"]:checked').value === 'custom';
+
+            if (isCustom) {
+                let rawThc = parseFloat(document.getElementById('customThc').value);
+                let rawCbd = parseFloat(document.getElementById('customCbd').value);
+                let rawCbg = parseFloat(document.getElementById('customCbg').value);
+
+                // Regra de arredondamento: se for nulo, NaN ou 0, vira 0.5
+                let finalThc = (isNaN(rawThc) || rawThc === 0) ? 0.5 : rawThc;
+                let finalCbd = (isNaN(rawCbd) || rawCbd === 0) ? 0.5 : rawCbd;
+                let finalCbg = (isNaN(rawCbg) || rawCbg === 0) ? 0.5 : rawCbg;
+                
+                let customName = document.getElementById('customName').value.trim();
+                
+                activeStrain = {
+                    name: customName !== "" ? customName : "Genética Personalizada",
+                    type: document.getElementById('customType').value,
+                    thc_avg: finalThc,
+                    cbd_avg: finalCbd,
+                    cbg_avg: finalCbg
+                };
+            } else {
+                const strainName = document.getElementById('strainInput').value;
+                activeStrain = strainsData.find(s => s.name === strainName);
+                if (!activeStrain) {
+                    alert("Por favor, selecione uma genética válida da lista ou utilize a opção 'Inserir Manualmente'.");
+                    return;
+                }
+            }
+
+            const volumeMl = parseFloat(document.getElementById('targetVolume').value);
+            const rawConcentration = parseFloat(document.getElementById('targetConcentration').value);
+            const isMgMl = document.querySelector('input[name="unitToggle"]:checked').value === 'mgml';
+            
+            const efficiency = 80; 
+            const dropsPerMl = 20;
+
+            if (isNaN(volumeMl) || isNaN(rawConcentration)) {
+                alert("Por favor, preencha os campos de volume e concentração alvo com números válidos.");
+                return;
+            }
+
+            // Normalizando para mg/mL
+            let targetMgMl = rawConcentration;
+            if (!isMgMl) {
+                targetMgMl = rawConcentration * 10; 
+            }
+
+            // 1. Matemática Base 
+            const totalStrainPerc = activeStrain.thc_avg + activeStrain.cbd_avg + activeStrain.cbg_avg;
+            const totalMgRequired = targetMgMl * volumeMl;
+            const mgPerGramYield = (totalStrainPerc / 100) * 1000 * (efficiency / 100);
+            const requiredGrams = totalMgRequired / mgPerGramYield;
+
+            // 2. Proporções Individuais e Gota (mg/mL)
+            const thcMgMl = (activeStrain.thc_avg / totalStrainPerc) * targetMgMl;
+            const cbdMgMl = (activeStrain.cbd_avg / totalStrainPerc) * targetMgMl;
+            const cbgMgMl = (activeStrain.cbg_avg / totalStrainPerc) * targetMgMl;
+            const mgPerGota = targetMgMl / dropsPerMl;
+
+            // Calculando o Ratio Dinâmico
+            let ratioStr = "1:1";
+            if(cbdMgMl > thcMgMl) {
+                ratioStr = `${(cbdMgMl / (thcMgMl || 0.1)).toFixed(1)} : 1 (CBD:THC)`;
+            } else if (thcMgMl > cbdMgMl) {
+                ratioStr = `1 : ${(thcMgMl / (cbdMgMl || 0.1)).toFixed(1)} (CBD:THC)`;
+            }
+
+            // 3. Atualizar Interface - Receita e Farmacologia
+            document.getElementById('resName').textContent = activeStrain.name;
+            document.getElementById('resType').textContent = activeStrain.type;
+            
+            document.getElementById('resVol').textContent = volumeMl;
+            document.getElementById('resMgMlInput').textContent = targetMgMl.toFixed(1);
+            document.getElementById('resGrams').textContent = requiredGrams.toFixed(2);
+            document.getElementById('resTcm').textContent = volumeMl.toFixed(1);
+            document.getElementById('resRatio').textContent = ratioStr;
+            document.getElementById('resMgGota').textContent = mgPerGota.toFixed(2);
+
+            document.getElementById('thcMl').textContent = thcMgMl.toFixed(2);
+            document.getElementById('thcTotal').textContent = (thcMgMl * volumeMl).toFixed(0);
+            document.getElementById('cbdMl').textContent = cbdMgMl.toFixed(2);
+            document.getElementById('cbdTotal').textContent = (cbdMgMl * volumeMl).toFixed(0);
+            document.getElementById('cbgMl').textContent = cbgMgMl.toFixed(2);
+            document.getElementById('cbgTotal').textContent = (cbgMgMl * volumeMl).toFixed(0);
+
+            // 4. Atualizar Interface - Tabela de Dosagem
+            const calcDose = (targetMg) => {
+                const vol = targetMg / targetMgMl;
+                const gotas = targetMg / mgPerGota;
+                return { vol: vol.toFixed(2), gotas: Math.round(gotas) };
+            };
+
+            const dose10 = calcDose(10);
+            document.getElementById('vol10').textContent = dose10.vol;
+            document.getElementById('gotas10').textContent = dose10.gotas;
+
+            const dose25 = calcDose(25);
+            document.getElementById('vol25').textContent = dose25.vol;
+            document.getElementById('gotas25').textContent = dose25.gotas;
+
+            const dose50 = calcDose(50);
+            document.getElementById('vol50').textContent = dose50.vol;
+            document.getElementById('gotas50').textContent = dose50.gotas;
+
+            document.getElementById('results').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
