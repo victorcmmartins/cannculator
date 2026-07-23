@@ -1,0 +1,19 @@
+{
+  "name": "calculadora-extracao-cannabis",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Calculadora clínica de apoio para receitas de extração de óleo de cannabis full spectrum.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "lint:js": "eslint .",
+    "lint:html": "html-validate index.html",
+    "validate": "npm run lint:js && npm run lint:html && npm test"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "eslint": "^9.9.0",
+    "html-validate": "^8.24.0"
+  }
+}
