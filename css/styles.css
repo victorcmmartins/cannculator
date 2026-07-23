@@ -5,7 +5,9 @@
    + monoespaçada para todos os números (dados de laboratório).
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+/* Sem fontes de terceiros: nenhuma requisição sai para fonts.googleapis.com,
+   o que evita vazar IP/user-agent do visitante para o Google e permite uma
+   Content-Security-Policy sem exceções para font-src/style-src externos. */
 
 :root {
   --paper: #f1f2ea;
@@ -21,9 +23,9 @@
   --clay-soft: #f6e2dd;
   --line: #cdd2c4;
 
-  --font-display: 'Source Serif 4', Georgia, serif;
-  --font-body: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
-  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+  --font-display: Iowan Old Style, Palatino Linotype, URW Palladio L, P052, Georgia, serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
 
   --radius: 3px;
   --shadow-card: 0 1px 2px rgba(22, 30, 22, 0.06), 0 8px 24px -12px rgba(22, 30, 22, 0.18);
@@ -31,9 +33,14 @@
 
 * { box-sizing: border-box; }
 
+.hidden { display: none; }
+
+.form-title { font-size: 1.05rem; margin-bottom: 20px; }
+.mt-sm { margin-top: 12px; }
+
 @media (prefers-reduced-motion: no-preference) {
   .drip { animation: drip 3.6s ease-in-out infinite; }
-  #results[data-open="true"] { animation: rise 0.35s ease-out; }
+  #results.reveal { animation: rise 0.35s ease-out; }
 }
 
 @keyframes drip {
@@ -321,9 +328,6 @@ button.primary:hover { background: var(--pine-deep); }
 button.primary:active { transform: scale(0.99); }
 
 .result-panel { min-width: 0; }
-
-#results { display: none; }
-#results[data-open="true"] { display: block; }
 
 .result-header {
   display: flex;

@@ -13,6 +13,7 @@ farmacêutica. Veja o aviso completo no rodapé da página.
 ```
 .
 ├── index.html              # Marcação da página (sem lógica de negócio)
+├── CNAME                    # Domínio customizado do GitHub Pages (doseflora.online)
 ├── css/styles.css          # Identidade visual
 ├── js/
 │   ├── calculator.js        # Lógica pura de cálculo (sem DOM) — testável
@@ -68,6 +69,72 @@ Em **Settings → Pages → Build and deployment → Source**, selecione
 **GitHub Actions** (não "Deploy from a branch"). Isso é obrigatório para que o
 job `deploy` funcione.
 
+## Domínio próprio: doseflora.online (Hostinger + Cloudflare + GitHub Pages)
+
+Arquitetura: domínio **registrado na Hostinger**, **DNS gerenciado pela
+Cloudflare** (proxy/CDN), servido pelo **GitHub Pages**. O arquivo `CNAME` na
+raiz do repo já está configurado com `doseflora.online` e é copiado para
+`_site/` a cada deploy pelo workflow — sem isso, o GitHub reseta o domínio
+customizado a cada novo deploy.
+
+### 1. Mover o DNS da Hostinger para a Cloudflare
+
+1. Crie uma conta na Cloudflare (free) e clique em **Add a site** → digite
+   `doseflora.online`.
+2. A Cloudflare vai escanear os registros DNS atuais e te dar **2 nameservers**
+   (algo como `ana.ns.cloudflare.com` / `bob.ns.cloudflare.com`).
+3. No painel da **Hostinger** → **Domínios → doseflora.online → Nameservers**,
+   troque os nameservers da Hostinger pelos da Cloudflare.
+4. Propagação leva de alguns minutos a ~24h. A Cloudflare avisa por e-mail
+   quando o domínio for ativado.
+
+> A partir daqui, toda a gestão de DNS (registros A/CNAME, SSL, cache) é feita
+> na Cloudflare, não mais na Hostinger.
+
+### 2. Configurar os registros DNS na Cloudflare
+
+No painel Cloudflare → **DNS → Records**, adicione:
+
+| Tipo | Nome | Conteúdo | Proxy |
+|------|------|----------|-------|
+| A | `@` | `185.199.108.153` | ✅ Proxied |
+| A | `@` | `185.199.109.153` | ✅ Proxied |
+| A | `@` | `185.199.110.153` | ✅ Proxied |
+| A | `@` | `185.199.111.153` | ✅ Proxied |
+| CNAME | `www` | `<seu-usuario>.github.io` | ✅ Proxied |
+
+Os 4 IPs são os endereços fixos do GitHub Pages (apex domain). Substitua
+`<seu-usuario>` pelo dono do repositório no GitHub.
+
+> **Dica:** durante a configuração inicial, se o GitHub reclamar que não
+> consegue verificar o domínio, mude o proxy para **DNS only** (nuvem cinza)
+> temporariamente, espere o GitHub confirmar o domínio em Settings → Pages, e
+> depois volte para **Proxied** (nuvem laranja) para ganhar CDN/DDoS da
+> Cloudflare.
+
+### 3. Configurar o SSL/TLS na Cloudflare
+
+Em **SSL/TLS → Overview**, selecione o modo **Full** (não "Flexible") — o
+GitHub Pages já serve HTTPS, então "Full" garante criptografia ponta a ponta
+sem loop de redirecionamento. Em **SSL/TLS → Edge Certificates**, ative
+**Always Use HTTPS**.
+
+### 4. Configurar o domínio no GitHub
+
+Em **Settings → Pages → Custom domain**, digite `doseflora.online` e salve.
+Espere o check verde de verificação DNS aparecer e então marque
+**Enforce HTTPS**. O GitHub reescreve automaticamente o arquivo `CNAME` do
+repo se ele não existir — mas como já commitamos um, isso só confirma o valor.
+
+### Checklist rápido
+
+- [ ] Nameservers da Hostinger apontando para a Cloudflare
+- [ ] 4 registros `A` (apex) + 1 `CNAME` (`www`) na Cloudflare
+- [ ] SSL/TLS em modo **Full** + **Always Use HTTPS** na Cloudflare
+- [ ] `doseflora.online` configurado em Settings → Pages, com **Enforce HTTPS**
+- [ ] `CNAME` commitado na raiz do repo (já feito neste projeto)
+
+
 ## Banco de genéticas (`data/strains_db.json`)
 
 Array de objetos com o formato:
@@ -88,6 +155,56 @@ Array de objetos com o formato:
 obrigatórios, valores numéricos não-negativos, e que não existam `id`/`name`
 duplicados — isso roda no CI antes de qualquer deploy, então um JSON quebrado
 nunca chega ao ar.
+
+## Segurança
+
+Risco geral: **baixo** — site 100% estático, sem backend, sem banco de dados,
+sem autenticação e sem dados de usuário armazenados. Ainda assim, foi feito
+hardening defensivo:
+
+**Já aplicado no código:**
+- **CSP** (`<meta http-equiv="Content-Security-Policy">` em `index.html`):
+  `default-src 'self'` sem `unsafe-inline`, nenhuma origem externa permitida.
+- **Sem terceiros**: removida a dependência de `fonts.googleapis.com`
+  (evitava vazar IP/user-agent do visitante para o Google a cada carregamento
+  — relevante para LGPD num site com conteúdo de saúde). Fontes agora são só
+  a stack nativa do sistema operacional.
+- **Sem `innerHTML`/`insertAdjacentHTML`** em `js/app.js`: toda escrita no DOM
+  usa `textContent`/`createElement`. Uma regra de ESLint (`eslint.config.js`)
+  bane esses dois padrões no repo inteiro, para não reintroduzir por engano.
+- **Sem `style=""` inline**: toda visibilidade é controlada por
+  `classList.toggle('hidden', ...)`, o que também é o que viabiliza a CSP
+  acima sem precisar de `'unsafe-inline'` em `style-src`.
+- **Links externos** (`target="_blank"`) já usam `rel="noopener noreferrer"`,
+  prevenindo reverse tabnabbing.
+- **GitHub Actions pinadas por commit SHA** (não por tag `@v4`) em
+  `.github/workflows/deploy.yml`, seguindo a recomendação da OpenSSF/
+  StepSecurity contra ataques de supply chain em que uma tag é remarcada
+  para apontar para código malicioso.
+- **`npm audit --audit-level=high`** no pipeline: o deploy não acontece se
+  alguma dependência de desenvolvimento tiver vulnerabilidade alta/crítica
+  conhecida.
+- **Permissões mínimas por job** no workflow: o job `quality` só tem
+  `contents: read`; `pages: write` e `id-token: write` existem só no job
+  `deploy`, e só quando `quality` passou.
+
+**Ações manuais recomendadas (fora do código, na Cloudflare):**
+GitHub Pages não permite configurar headers HTTP customizados na origem, então
+alguns headers precisam ser adicionados via **Cloudflare → Rules → Transform
+Rules (Modify Response Header)** depois que o domínio estiver ativo:
+- `X-Frame-Options: DENY` (ou `Content-Security-Policy: frame-ancestors 'none'`)
+  — a diretiva `frame-ancestors` da CSP só funciona via header HTTP, não via
+  `<meta>`, então hoje o site ainda pode ser embutido em um `<iframe>` de
+  terceiros até esse header ser adicionado na Cloudflare.
+- `Referrer-Policy: strict-origin-when-cross-origin`
+- `X-Content-Type-Options: nosniff`
+- Em **SSL/TLS → Overview**, usar o modo **Full (strict)** em vez de "Full"
+  — o GitHub Pages já serve um certificado publicamente confiável (Let's
+  Encrypt), então "strict" é seguro e mais rígido.
+- Ativar **DNSSEC** (Cloudflare → DNS → Settings) para reduzir risco de
+  spoofing/cache poisoning no DNS do domínio.
+- Considerar ativar **HSTS** (SSL/TLS → Edge Certificates) depois que HTTPS
+  estiver 100% estável — reduz janela de ataques de downgrade para HTTP.
 
 ## Sugestões para evolução (não implementadas ainda)
 

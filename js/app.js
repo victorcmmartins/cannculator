@@ -1,6 +1,11 @@
 // js/app.js
 // Camada de interface: lê o formulário, chama js/calculator.js (lógica pura)
 // e escreve os resultados no DOM.
+//
+// Nota de segurança: este arquivo propositalmente NUNCA usa innerHTML.
+// Toda escrita no DOM usa textContent ou createElement, e toda visibilidade
+// é controlada via classList('hidden'), nunca via style="" inline — isso
+// permite uma Content-Security-Policy sem 'unsafe-inline' em style-src.
 import { buildCustomStrain, calculateRecipe } from './calculator.js';
 
 let strainsData = [];
@@ -26,6 +31,10 @@ const els = {
   results: document.getElementById('results'),
 };
 
+function setHidden(el, hidden) {
+  el.classList.toggle('hidden', hidden);
+}
+
 async function loadStrains() {
   try {
     const response = await fetch('data/strains_db.json');
@@ -39,7 +48,7 @@ async function loadStrains() {
 }
 
 function populateDatalist() {
-  els.strainOptions.innerHTML = '';
+  els.strainOptions.replaceChildren();
   const fragment = document.createDocumentFragment();
   strainsData.forEach((strain) => {
     const option = document.createElement('option');
@@ -51,8 +60,8 @@ function populateDatalist() {
 
 function updateSourceUI() {
   const isCustom = els.sourceToggle() === 'custom';
-  els.dbSelection.style.display = isCustom ? 'none' : 'block';
-  els.customSelection.style.display = isCustom ? 'block' : 'none';
+  setHidden(els.dbSelection, isCustom);
+  setHidden(els.customSelection, !isCustom);
 }
 
 function updateUnitUI() {
@@ -63,13 +72,23 @@ function updateUnitUI() {
   els.targetConcentration.placeholder = isMgMl ? 'Ex: 50' : 'Ex: 5';
 }
 
+/** Cria uma linha <dt>/<dd> para o painel de detalhes da genética, sem innerHTML. */
+function appendDetailRow(dl, term, value) {
+  const dt = document.createElement('dt');
+  dt.textContent = term;
+  const dd = document.createElement('dd');
+  dd.textContent = value;
+  dl.append(dt, dd);
+}
+
 function renderStrainDetails() {
   const strainName = els.strainInput.value;
   const strain = strainsData.find((s) => s.name === strainName);
 
+  els.strainDetails.replaceChildren();
+
   if (!strain) {
-    els.strainDetails.innerHTML = '';
-    els.strainDetails.style.display = 'none';
+    setHidden(els.strainDetails, true);
     return;
   }
 
@@ -80,31 +99,24 @@ function renderStrainDetails() {
     ratioTxt = `1:${(strain.thc_avg / (strain.cbd_avg || 0.1)).toFixed(0)} (CBD:THC)`;
   }
 
-  els.strainDetails.innerHTML = `
-    <dl>
-      <dt>Perfil</dt><dd>${escapeHtml(strain.type)}</dd>
-      <dt>Ratio aprox.</dt><dd>${escapeHtml(ratioTxt)}</dd>
-      <dt>THC médio</dt><dd>${strain.thc_avg}%</dd>
-      <dt>CBD médio</dt><dd>${strain.cbd_avg}%</dd>
-      <dt>CBG médio</dt><dd>${strain.cbg_avg}%</dd>
-    </dl>`;
-  els.strainDetails.style.display = 'block';
-}
-
-function escapeHtml(str) {
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
+  const dl = document.createElement('dl');
+  appendDetailRow(dl, 'Perfil', strain.type);
+  appendDetailRow(dl, 'Ratio aprox.', ratioTxt);
+  appendDetailRow(dl, 'THC médio', `${strain.thc_avg}%`);
+  appendDetailRow(dl, 'CBD médio', `${strain.cbd_avg}%`);
+  appendDetailRow(dl, 'CBG médio', `${strain.cbg_avg}%`);
+  els.strainDetails.appendChild(dl);
+  setHidden(els.strainDetails, false);
 }
 
 function showError(message) {
   els.errorBox.textContent = message;
-  els.errorBox.style.display = 'block';
+  setHidden(els.errorBox, false);
 }
 
 function clearError() {
   els.errorBox.textContent = '';
-  els.errorBox.style.display = 'none';
+  setHidden(els.errorBox, true);
 }
 
 function getActiveStrain() {
@@ -156,16 +168,19 @@ function renderResults(result) {
     set(dropsId, dose.drops);
   });
 
-  els.results.style.display = 'block';
-  els.results.setAttribute('data-open', 'true');
+  setHidden(els.results, false);
+  els.results.classList.remove('reveal');
+  // Força reflow para permitir reiniciar a animação a cada novo cálculo.
+  void els.results.offsetWidth;
+  els.results.classList.add('reveal');
   els.results.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 function handleSubmit(event) {
   event.preventDefault();
   clearError();
-  els.results.style.display = 'none';
-  els.results.removeAttribute('data-open');
+  setHidden(els.results, true);
+  els.results.classList.remove('reveal');
 
   try {
     const strain = getActiveStrain();

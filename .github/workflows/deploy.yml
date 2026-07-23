@@ -17,25 +17,31 @@ permissions:
 
 jobs:
   quality:
-    name: Lint, validação de HTML e testes
+    name: Lint, validação de HTML, auditoria e testes
     runs-on: ubuntu-latest
     steps:
+      # Todas as actions abaixo são pinadas por commit SHA (não por tag mutável
+      # como "@v4"), seguindo a recomendação da OpenSSF/StepSecurity contra
+      # ataques de supply chain em que uma tag é remarcada para código malicioso.
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.3.0
 
       - name: Configurar Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '20'
           cache: 'npm'
 
-      - name: Instalar dependências
+      - name: Instalar dependências (lockfile determinístico)
         run: npm ci
 
-      - name: Lint JavaScript (ESLint)
+      - name: Auditoria de dependências (falha em vulnerabilidades altas/críticas)
+        run: npm audit --audit-level=high
+
+      - name: Lint JavaScript (ESLint, inclui proibição de innerHTML)
         run: npm run lint:js
 
-      - name: Validar HTML (html-validate)
+      - name: Validar HTML (html-validate — inclui checagens de a11y/WCAG)
         run: npm run lint:html
 
       - name: Rodar testes unitários (lógica de cálculo + integridade do JSON)
@@ -55,24 +61,25 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.3.0
 
       - name: Configurar GitHub Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
 
       - name: Preparar artefato do site
         run: |
           mkdir -p _site
           cp index.html _site/
+          cp CNAME _site/
           cp -r css _site/css
           cp -r js _site/js
           cp -r data _site/data
 
       - name: Upload do artefato
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
           path: _site
 
       - name: Deploy no GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculadora Clínica de Extração de Cannabis</title>
   <meta name="description" content="Ferramenta de apoio para modelagem de receitas de extração de óleo de cannabis full spectrum, com base no perfil botânico da genética utilizada.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -19,7 +20,7 @@
   <main id="main" class="layout">
     <section class="input-panel" aria-labelledby="form-title">
       <form id="recipeForm" class="card" novalidate>
-        <h2 id="form-title" class="section-title" style="font-size:1.05rem; margin-bottom: 20px;">Dados da extração</h2>
+        <h2 id="form-title" class="section-title form-title">Dados da extração</h2>
 
         <div class="field-group">
           <span class="field-label"><span class="step-number">1</span> Origem da genética (matéria vegetal)</span>
@@ -42,11 +43,11 @@
           <div id="strainDetails" class="strain-details" aria-live="polite"></div>
         </div>
 
-        <div id="customSelection" class="custom-panel field-group" style="display:none;">
+        <div id="customSelection" class="custom-panel field-group hidden">
           <label class="sub-label" for="customName">Nome da genética</label>
           <input type="text" id="customName" placeholder="Ex: Manga Rosa">
 
-          <label class="sub-label" style="margin-top:12px;" for="customType">Perfil predominante</label>
+          <label class="sub-label mt-sm" for="customType">Perfil predominante</label>
           <select id="customType">
             <option value="Sativa">Sativa</option>
             <option value="Indica">Indica</option>
@@ -100,7 +101,7 @@
           <input type="number" id="targetConcentration" placeholder="Ex: 50" min="0.1" step="0.1">
         </div>
 
-        <div id="formError" role="alert" class="note-box danger" style="display:none;"></div>
+        <div id="formError" role="alert" class="note-box danger hidden"></div>
 
         <p class="tech-note">
           O cálculo assume <strong>80% de eficiência</strong> (média para extrações caseiras com solvente) e um conta-gotas de <strong>20 gotas por mL</strong>. 1% de canabinoide equivale a 10 mg/mL.
@@ -111,7 +112,7 @@
     </section>
 
     <section class="result-panel" aria-live="polite">
-      <div id="results" class="card">
+      <div id="results" class="card hidden">
         <div class="result-header">
           <svg class="dropper-icon drip" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M9 2H15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>

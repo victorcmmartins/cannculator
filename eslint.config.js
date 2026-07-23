@@ -19,6 +19,18 @@ export default [
       eqeqeq: ['error', 'always'],
       'no-var': 'error',
       'prefer-const': 'warn',
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: "AssignmentExpression[left.property.name='innerHTML']",
+          message:
+            'Não use innerHTML (risco de XSS). Use textContent, createElement/appendChild ou replaceChildren().',
+        },
+        {
+          selector: "CallExpression[callee.property.name='insertAdjacentHTML']",
+          message: 'Não use insertAdjacentHTML (risco de XSS). Construa nós via createElement.',
+        },
+      ],
     },
   },
   {
